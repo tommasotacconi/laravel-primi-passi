@@ -19,5 +19,23 @@ use Illuminate\Support\Facades\Route;
 
 // Route to homepage
 Route::get('/', function () {
-    return view('home');
+    // I create a todo list to insert data dinamically
+    $list_title = 'Todo 21/10/24';
+    $list = [
+        'guardare le slide introduttive',
+        'installare composer',
+        'creare un nuovo progetto con composer',
+        'riguardare la parte di lezione su blade (template engine)',
+        'restitituire alcuni dati dinamicamente con la sintassi di Laravel',
+        'comprare l\'avvolgitore della tapparella',
+        'allenamento alle 18',
+    ];
+
+    // I pass data to view
+    return view('home',
+        [
+            'title'=>$list_title,
+            'list'=>$list
+        ]
+    );
 });
